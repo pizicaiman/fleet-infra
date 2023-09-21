@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: podinfo2
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: podinfo2
+  template:
+    metadata:
+      labels:
+        app: podinfo2
+    spec:
+      containers:
+        - name: podinfod2
+          image: ghcr.io/stefanprodan/podinfo:5.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 9898
+              protocol: TCP
