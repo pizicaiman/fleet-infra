@@ -1,7 +1,11 @@
-apiVersion: source.toolkit.fluxcd.io/v1beta1
+---
+apiVersion: source.toolkit.fluxcd.io/v1
 kind: GitRepository
 metadata:
-  name: my-git-repo
+  name: nginx
+  namespace: default
 spec:
   url: https://github.com/pizicaiman/fleet-infra
-  ref: main
+  ref: 
+    branch: main
+  interval: 10s
