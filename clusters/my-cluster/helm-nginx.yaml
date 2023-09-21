@@ -1,0 +1,15 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: nginx-release
+  namespace: default
+spec:
+  releaseName: nginx-release
+  chart:
+    gitRepository:
+      url: https://github.com/pizicaiman/fleet-infra.git  # 指定 Helm Chart 所在的 Git 仓库 URL
+      ref: main  # 可以是分支或标签
+      path: /nginx  # Helm Chart 的路径
+  values:
+    replicaCount: 3  # 根据需要设置 Helm Chart 的值
+
